@@ -1,4 +1,4 @@
-import { Misc } from "@/src/Misc";
+import { Misc } from "@/src/modules/Misc";
 
 export const App = () => {
 	fetch("/api/ping").then(res => res.json()).then(res => console.log(res));

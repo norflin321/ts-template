@@ -1,8 +1,4 @@
 export namespace Misc {
-	export const sayHello = () => {
-		console.log("hello", uid(5));
-	}
-
 	export const uid = (e = 21) => {
 		const r = crypto.getRandomValues(new Uint8Array(e));
 		let t = "";
