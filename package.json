@@ -7,24 +7,29 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
-    "dev:client": "npx vite --config client/vite.config.ts --force --host",
-    "dev:server": "nodemon --watch src --ext ts --exec 'npm run start:server'",
-    "start:server": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
+    "dev": "concurrently 'npm run client:dev' 'npm run server:dev'",
+    "client:dev": "npx vite --config client/vite.config.ts --force --host",
+    "client:build": "npx vite build --config client/vite.config.ts",
+    "server:dev": "nodemon --watch src --ext ts --exec 'npm run server:start'",
+    "server:start": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
     "lint": "npx eslint client server",
     "lint:fix": "npx eslint client server --fix",
     "update-hooks": "npx simple-git-hooks"
   },
   "commitlint": {
-	  "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "simple-git-hooks": {
-	  "commit-msg": "npx --no -- commitlint --edit $1"
+    "commit-msg": "npx --no -- commitlint --edit $1"
   },
   "dependencies": {
     "preact": "^10.26.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@preact/preset-vite": "^2.10.1",
     "@types/node": "^22.14.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -39,6 +44,7 @@
     "simple-git-hooks": "^2.12.1",
     "tsx": "^4.19.3",
     "typescript": "~5.7.2",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vite-plugin-checker": "^0.9.1"
   }
 }
