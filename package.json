@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "clear && concurrently 'npm run client:dev' 'npm run server:dev'",
-    "prod": "clear && npm run client:build && npm run server:start",
+    "prod": "clear && npm run test && npm run client:build && npm run server:start",
 
     "client:dev": "npx vite --config client/vite.config.ts --force --host",
     "client:build": "npx vite build --config client/vite.config.ts",
@@ -16,7 +16,8 @@
     "server:dev": "nodemon --quiet --watch src --ext ts --exec 'npm run server:start'",
     "server:start": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
 
-    "lint": "npx eslint client server",
+    "test": "npm run lint && npx tsc --noEmit",
+    "lint": "npx eslint src client/src",
     "lint:fix": "npx eslint client server --fix",
     "update-hooks": "npx simple-git-hooks"
   },
@@ -26,7 +27,8 @@
     ]
   },
   "simple-git-hooks": {
-    "commit-msg": "npx --no -- commitlint --edit $1"
+    "commit-msg": "npx --no -- commitlint --edit $1",
+    "pre-commit": "npm run test"
   },
   "dependencies": {
     "express": "^5.1.0",
