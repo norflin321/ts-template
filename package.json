@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
 	  "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
     "dev:client": "npx vite --config client/vite.config.ts --force --host",
-    "dev:server": "nodemon --watch server --ext ts,tsx --exec 'npm run start:server'",
-    "start:server": "npx tsx --tsconfig ./server/tsconfig.server.json server/main.ts",
+    "dev:server": "nodemon --watch src --ext ts --exec 'npm run start:server'",
+    "start:server": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
     "lint": "npx eslint client server",
     "lint:fix": "npx eslint client server --fix"
   },

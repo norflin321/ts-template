@@ -1,6 +1,6 @@
 export namespace Misc {
 	export const sayHello = () => {
-		console.log("hello", uid());
+		console.log("hello", uid(5));
 	}
 
 	export const uid = (e = 21) => {

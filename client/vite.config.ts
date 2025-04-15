@@ -4,9 +4,8 @@ import path from "path"
 
 export default defineConfig({
 	plugins: [preact()],
-	base: "./",
+	root: path.resolve(__dirname),
 	resolve: {
-		alias: { "@": path.resolve(__dirname, "src") },
-	},
-	root: path.resolve(__dirname)
+		alias: { "@": path.resolve(__dirname, "..") },
+	}
 })
