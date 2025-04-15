@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+	  "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
     "dev:client": "npx vite --config client/vite.config.ts --force --host",
-    "dev:server": "npx tsx --tsconfig ./server/tsconfig.server.json server/main.ts",
+    "dev:server": "nodemon --watch server --ext ts,tsx --exec 'npm run start:server'",
+    "start:server": "npx tsx --tsconfig ./server/tsconfig.server.json server/main.ts",
     "lint": "npx eslint client server",
     "lint:fix": "npx eslint client server --fix"
   },
@@ -22,6 +24,7 @@
     "eslint-plugin-de-morgan": "^1.2.1",
     "eslint-plugin-sonarjs": "^0.25.1",
     "eslint-plugin-unicorn": "^52.0.0",
+    "nodemon": "^3.1.9",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.3",
     "typescript": "~5.7.2",
