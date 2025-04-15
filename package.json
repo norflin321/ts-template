@@ -12,10 +12,14 @@
     "dev:server": "nodemon --watch src --ext ts --exec 'npm run start:server'",
     "start:server": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
     "lint": "npx eslint client server",
-    "lint:fix": "npx eslint client server --fix"
+    "lint:fix": "npx eslint client server --fix",
+    "update-hooks": "npx simple-git-hooks"
+  },
+  "commitlint": {
+	  "extends": ["@commitlint/config-conventional"]
   },
   "simple-git-hooks": {
-  	"pre-commit": "echo hello"
+	  "commit-msg": "npx --no -- commitlint --edit $1"
   },
   "dependencies": {
     "preact": "^10.26.2"
