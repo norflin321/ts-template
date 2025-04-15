@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev:client": "npx vite --config client/vite.config.ts --force --host",
-    "dev:server": "npx tsx --tsconfig ./server/tsconfig.server.json server/src/main.ts",
+    "dev:server": "npx tsx --tsconfig ./server/tsconfig.server.json server/main.ts",
     "lint": "npx eslint client server",
     "lint:fix": "npx eslint client server --fix"
   },

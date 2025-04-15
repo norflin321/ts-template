@@ -17,8 +17,8 @@
     "noUncheckedIndexedAccess": true,
 
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["./**/*"]
 }
