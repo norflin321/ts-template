@@ -7,12 +7,15 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-	  "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
+    "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
     "dev:client": "npx vite --config client/vite.config.ts --force --host",
     "dev:server": "nodemon --watch src --ext ts --exec 'npm run start:server'",
     "start:server": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
     "lint": "npx eslint client server",
     "lint:fix": "npx eslint client server --fix"
+  },
+  "simple-git-hooks": {
+  	"pre-commit": "echo hello"
   },
   "dependencies": {
     "preact": "^10.26.2"
@@ -29,6 +32,7 @@
     "eslint-plugin-unicorn": "^52.0.0",
     "nodemon": "^3.1.9",
     "rimraf": "^6.0.1",
+    "simple-git-hooks": "^2.12.1",
     "tsx": "^4.19.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
