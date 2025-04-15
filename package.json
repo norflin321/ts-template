@@ -9,13 +9,10 @@
   "scripts": {
     "dev": "clear && concurrently 'npm run client:dev' 'npm run server:dev'",
     "prod": "clear && npm run test && npm run client:build && npm run server:start",
-
     "client:dev": "npx vite --config client/vite.config.ts --force --host",
     "client:build": "npx vite build --config client/vite.config.ts",
-
     "server:dev": "nodemon --quiet --watch src --ext ts --exec 'npm run server:start'",
     "server:start": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
-
     "test": "npm run lint && npx tsc --noEmit",
     "lint": "npx eslint src client/src",
     "lint:fix": "npx eslint client server --fix",
@@ -48,7 +45,6 @@
     "eslint-plugin-sonarjs": "^0.25.1",
     "eslint-plugin-unicorn": "^52.0.0",
     "nodemon": "^3.1.9",
-    "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.12.1",
     "tsx": "^4.19.3",
     "typescript": "~5.7.2",
