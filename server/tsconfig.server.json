@@ -1,15 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "rootDir": "./src",
-    "outDir": "../build",
-    "esModuleInterop": true,
-    "strict": true,
+    "skipLibCheck": true,
+    "target": "es2023",
+    "lib": ["ES2023"],
 
-    "baseUrl": ".",
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+
+    "strict": true,
+    "noImplicitAny": false,
+    "noUncheckedIndexedAccess": true,
+
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["src/**/*"]
 }
