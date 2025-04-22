@@ -13,28 +13,23 @@
     "client:build": "npx vite build --config client/vite.config.ts",
     "server:dev": "nodemon --quiet --watch src --ext ts --exec 'npm run server:start'",
     "server:start": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
+    "server:start:demon": "pm2 start 'npm run server:start' --name server && pm2 logs server",
     "test": "npm run lint && npx tsc --noEmit",
     "lint": "npx eslint src client/src",
     "lint:fix": "npx eslint client server --fix",
-    "update-hooks": "npx simple-git-hooks"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "simple-git-hooks": {
-    "commit-msg": "npx --no -- commitlint --edit $1",
-    "pre-commit": "npm run test"
+    "update-hooks": "npx simple-git-hooks",
+    "preview-db": "open -a 'DB Browser for SQLite' main.db",
+    "push-hot": "git add . && git commit -am 'hot-fix' && git push",
+    "delete-database": "rm -f main.db main.db-shm main.db-wal"
   },
   "dependencies": {
+    "better-sqlite3": "^11.9.1",
     "express": "^5.1.0",
     "preact": "^10.26.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
     "@preact/preset-vite": "^2.10.1",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -45,7 +40,6 @@
     "eslint-plugin-sonarjs": "^0.25.1",
     "eslint-plugin-unicorn": "^52.0.0",
     "nodemon": "^3.1.9",
-    "simple-git-hooks": "^2.12.1",
     "tsx": "^4.19.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
