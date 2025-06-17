@@ -1,5 +1,9 @@
-import { SERVER_PORT } from "@/const";
-import { App } from "@/modules/App";
+import { Db } from "@/modules/Db";
 
-console.log(`-- Server is running at http://localhost:${SERVER_PORT}\n`);
-App.init();
+import { Server } from "@/modules/Server";
+
+const main = async () => {
+	Db.init();
+	Server.init();
+}
+main();

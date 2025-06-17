@@ -18,6 +18,7 @@ export namespace Server {
 		app.use(express.static(pathToClientBuild));
 		app.get(/^\/(?!api).*/, (req, res) => res.sendFile(path.join(pathToClientBuild, "index.html")));
 
+		console.log(`-- Server is listening on http://localhost:${SERVER_PORT}\n`);
 		app.listen(SERVER_PORT);
 	}
 }
