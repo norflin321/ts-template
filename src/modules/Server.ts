@@ -8,15 +8,15 @@ export namespace Server {
 		const app = express();
 		const api = express.Router();
 
-		api.get("/ping", (req, res) => {
-			res.json({ message: Misc.uid() });
+		api.get("/ping", (_, res) => {
+			res.json({ message: Misc.nanoid() });
 		});
 		app.use("/api", api);
 
-		// server client build SPA
+		// serve client SPA build
 		const pathToClientBuild = path.join(ROOT_DIR, "client", "build");
 		app.use(express.static(pathToClientBuild));
-		app.get(/^\/(?!api).*/, (req, res) => res.sendFile(path.join(pathToClientBuild, "index.html")));
+		app.get(/^\/(?!api).*/, (_, res) => res.sendFile(path.join(pathToClientBuild, "index.html")));
 
 		console.log(`-- Server is listening on http://localhost:${SERVER_PORT}\n`);
 		app.listen(SERVER_PORT);

@@ -1,5 +1,4 @@
 import { Db } from "@/modules/Db";
-
 import { Server } from "@/modules/Server";
 
 const main = async () => {
