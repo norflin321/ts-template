@@ -1,3 +1,5 @@
+import * as fs from "fs/promises";
+
 export namespace Misc {
 	export const nanoid = (e = 21) => {
 		const r = crypto.getRandomValues(new Uint8Array(e));
@@ -13,4 +15,7 @@ export namespace Misc {
 		const mul = Math.pow(10, precision);
 		return Math.round(n * mul) / mul;
 	};
+
+	export const writeJson = async (path: string, data: any) => fs.writeFile(path, JSON.stringify(data, undefined, 2));
+	export const readJson = async <T>(path: string) => fs.readFile(path, { encoding: "utf-8" }).then(str => JSON.parse(str) as T);
 }
