@@ -1,5 +1,5 @@
 import { render } from "preact"
-import { Misc } from "@/src/modules/Misc";
+import { Misc } from "@/server/modules/Misc";
 
 const App = () => {
 	fetch("/api/ping").then(res => res.json()).then(res => console.log(res));

@@ -1,7 +1,7 @@
 {
 	"env": { "browser": true, "node": true, "es2024": true },
 	"parser": "@typescript-eslint/parser",
-	"parserOptions": { "ecmaVersion": "latest", "sourceType": "module", "project": ["./tsconfig.json", "./client/tsconfig.client.json", "./src/tsconfig.server.json"] },
+	"parserOptions": { "ecmaVersion": "latest", "sourceType": "module", "project": ["./tsconfig.json", "./client/tsconfig.client.json", "./server/tsconfig.server.json"] },
 	"plugins": ["@typescript-eslint", "unicorn", "sonarjs"],
 	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:de-morgan/recommended-legacy"],
 	"rules": {

@@ -10,11 +10,12 @@
     "dev": "clear && concurrently 'npm run client:dev' 'npm run server:dev'",
     "client:dev": "npx vite --config client/vite.config.ts --force --host",
     "client:build": "npm run client:lint && npx vite build --config client/vite.config.ts",
-    "server:dev": "nodemon --quiet --watch src --ext ts --exec 'npm run server:start'",
-    "server:start": "npx tsx --tsconfig ./src/tsconfig.server.json src/main.ts",
+    "server:dev": "nodemon --quiet --watch server --ext ts --exec 'npm run server:start'",
+    "server:start": "npx tsx --tsconfig ./server/tsconfig.server.json server/main.ts",
     "server:start:demon": "npx pm2 start 'npm run server:start' --name server && npx pm2 logs server",
     "client:lint": "npx eslint client/src/ --fix && tsc --noEmit -p client/tsconfig.client.json",
-    "server:lint": "npx eslint src/ --fix && tsc --noEmit -p src/tsconfig.server.json",
+    "server:lint": "npx eslint server --fix && tsc --noEmit -p server/tsconfig.server.json",
+		"lint": "npm run client:lint && npm run server:lint",
     "preview-db": "open -a 'DB Browser for SQLite' main.db"
   },
   "dependencies": {
