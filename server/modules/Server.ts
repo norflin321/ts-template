@@ -1,5 +1,5 @@
-import { ROOT, SERVER_PORT } from "@/const";
-import { Misc } from "@/modules/Misc";
+import { ROOT } from "@/server/const";
+import { Misc } from "@/server/modules/Misc";
 import express from "express";
 import path from "path";
 
@@ -18,7 +18,8 @@ export namespace Server {
 		app.use(express.static(pathToClientBuild));
 		app.get(/^\/(?!api).*/, (_, res) => res.sendFile(path.join(pathToClientBuild, "index.html")));
 
-		console.log(`\n  ➜  Server: http://localhost:${SERVER_PORT}\n`);
-		app.listen(SERVER_PORT);
+		const port = 8080;
+		console.log(`\n  ➜  Server: http://localhost:${port}\n`);
+		app.listen(port);
 	}
 }

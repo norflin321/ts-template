@@ -1,24 +1,22 @@
 {
-  "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "es2023",
-    "lib": ["ES2023"],
+	"compilerOptions": {
+		"skipLibCheck": true,
+		"target": "es2023",
+		"lib": ["ES2023"],
 
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
+		"esModuleInterop": true,
+		"module": "ESNext",
+		"moduleResolution": "node",
 
-    "allowJs": false,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
+		"allowJs": false,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
 
-    "strict": true,
-    "noImplicitAny": false,
-    "noUncheckedIndexedAccess": true,
+		"strict": true,
+		"noImplicitAny": false,
+		"noUncheckedIndexedAccess": true,
 
-    "paths": {
-      "@/*": ["./*"]
-    }
-  },
-  "include": ["./**/*"]
+		"paths": { "@/*": ["../*"] }
+	},
+	"include": ["./**/*"]
 }

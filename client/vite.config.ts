@@ -41,6 +41,7 @@ export default defineConfig(async ({ command, mode }) => {
 
 		build: {
 			outDir: "build",
+			assetsDir: "",
 			emptyOutDir: true,
 			rollupOptions: {
 				input: path.resolve(__dirname, "index.html"),
