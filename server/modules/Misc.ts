@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import path from "path";
 
-type Cache = any;
+type Cache = Partial<Record<string, any>>;
 
 export namespace Misc {
 	export const nanoid = (e = 21) => {
