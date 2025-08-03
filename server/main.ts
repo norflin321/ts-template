@@ -1,8 +1,8 @@
-import { Db } from "@/modules/Db";
+import { Database } from "@/modules/Database";
 import { Server } from "@/modules/Server";
 
 const main = async () => {
-	Db.init();
+	Database.init();
 	Server.init();
 }
 main();

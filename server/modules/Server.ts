@@ -1,6 +1,6 @@
-import express from "express";
+import { ROOT, SERVER_PORT } from "@/const";
 import { Misc } from "@/modules/Misc";
-import { ROOT_DIR, SERVER_PORT } from "@/const";
+import express from "express";
 import path from "path";
 
 export namespace Server {
@@ -14,11 +14,11 @@ export namespace Server {
 		app.use("/api", api);
 
 		// serve client SPA build
-		const pathToClientBuild = path.join(ROOT_DIR, "client", "build");
+		const pathToClientBuild = path.join(ROOT, "client", "build");
 		app.use(express.static(pathToClientBuild));
 		app.get(/^\/(?!api).*/, (_, res) => res.sendFile(path.join(pathToClientBuild, "index.html")));
 
-		console.log(`-- Server is listening on http://localhost:${SERVER_PORT}\n`);
+		console.log(`\n  ➜  Server: http://localhost:${SERVER_PORT}\n`);
 		app.listen(SERVER_PORT);
 	}
 }

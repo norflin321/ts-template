@@ -7,29 +7,27 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "clear && concurrently 'npm run client:dev' 'npm run server:dev'",
-    "client:dev": "npx vite --config client/vite.config.ts --force --host",
-    "client:build": "npm run client:lint && npx vite build --config client/vite.config.ts",
-    "server:dev": "nodemon --quiet --watch server --ext ts --exec 'npm run server:start'",
+	"dev": "clear && concurrently \"npx vite --config client/vite.config.ts --force --host --mode dev\" \"nodemon --watch server --ext ts --exec \\\"npm run server:start\\\"\"",
+	"client:build": "npm run client:lint && npx vite build --config client/vite.config.ts --mode prod",
+	"client:lint": "npx eslint client --fix && tsc --noEmit -p client/tsconfig.client.json",
     "server:start": "npx tsx --tsconfig ./server/tsconfig.server.json server/main.ts",
-    "server:start:demon": "npx pm2 start 'npm run server:start' --name server && npx pm2 logs server",
-    "client:lint": "npx eslint client/src/ --fix && tsc --noEmit -p client/tsconfig.client.json",
+    "server:start:demon": "npx pm2 start 'npm run server:start' --name server",
     "server:lint": "npx eslint server --fix && tsc --noEmit -p server/tsconfig.server.json",
-		"lint": "npm run client:lint && npm run server:lint",
     "preview-db": "open -a 'DB Browser for SQLite' main.db"
   },
   "dependencies": {
-    "better-sqlite3": "^11.10.0",
+    "better-sqlite3": "^12.2.0",
     "express": "^5.1.0",
-    "preact": "^10.26.9"
+    "preact": "^10.27.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.10.1",
+    "@preact/preset-vite": "^2.10.2",
     "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.3",
-    "@types/node": "^22.15.32",
+    "@types/node": "^24.1.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "@vitejs/plugin-legacy": "^7.1.0",
     "concurrently": "^9.2.0",
     "eslint": "^8.57.1",
     "eslint-plugin-de-morgan": "^1.3.0",
@@ -38,7 +36,7 @@
     "nodemon": "^3.1.10",
     "tsx": "^4.20.3",
     "typescript": "~5.7.2",
-    "vite": "^6.3.5",
-    "vite-plugin-checker": "^0.9.3"
+    "vite": "^7.0.6",
+    "vite-plugin-checker": "^0.10.2"
   }
 }
